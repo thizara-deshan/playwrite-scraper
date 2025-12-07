@@ -1,5 +1,5 @@
 # Use Node.js base image with necessary dependencies for Playwright
-FROM node:18-bookworm
+FROM node:22-bookworm
 
 # Set working directory
 WORKDIR /app
