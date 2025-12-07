@@ -10,7 +10,7 @@ const CONFIG = {
     baseUrl: 'https://www.seek.com.au',
     searchQueries: [
         // 'general-practitioner-jobs',
-        'dentist-jobs',
+        // 'dentist-jobs',
         'podiatrist-jobs',
         'psychologist-jobs',
         'psychiatrist-jobs',
@@ -19,7 +19,7 @@ const CONFIG = {
         'physiotherapist-jobs'
     ],
     daysBack: 60,
-    maxPagesPerQuery: 24,
+    maxPagesPerQuery: 9,
     delayBetweenPages: 4000,
     delayBetweenQueries: 6000,
     delayBetweenJobDetails: 2000,
