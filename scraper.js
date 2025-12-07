@@ -12,7 +12,7 @@ const CONFIG = {
         // 'general-practitioner-jobs',
         // 'dentist-jobs',
         // 'podiatrist-jobs',
-        'psychologist-jobs',
+        // 'psychologist-jobs',
         'psychiatrist-jobs',
         'occupational-therapist-jobs',
         'speech-pathologist-jobs',
