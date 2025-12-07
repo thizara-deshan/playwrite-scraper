@@ -19,7 +19,7 @@ const CONFIG = {
         'physiotherapist-jobs'
     ],
     daysBack: 60,
-    maxPagesPerQuery: 30,
+    maxPagesPerQuery: 25,
     delayBetweenPages: 4000,
     delayBetweenQueries: 6000,
     delayBetweenJobDetails: 2000,
