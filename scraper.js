@@ -11,7 +11,7 @@ const CONFIG = {
     searchQueries: [
         // 'general-practitioner-jobs',
         // 'dentist-jobs',
-        'podiatrist-jobs',
+        // 'podiatrist-jobs',
         'psychologist-jobs',
         'psychiatrist-jobs',
         'occupational-therapist-jobs',
