@@ -10,13 +10,13 @@ const CONFIG = {
     baseUrl: 'https://www.seek.com.au',
     searchQueries: [
         'general-practitioner-jobs',
-        'dentist-jobs',
-        'podiatrist-jobs',
-        'psychologist-jobs',
-        'psychiatrist-jobs',
-        'occupational-therapist-jobs',
-        'speech-pathologist-jobs',
-        'physiotherapist-jobs'
+        // 'dentist-jobs',
+        // 'podiatrist-jobs',
+        // 'psychologist-jobs',
+        // 'psychiatrist-jobs',
+        // 'occupational-therapist-jobs',
+        // 'speech-pathologist-jobs',
+        // 'physiotherapist-jobs'
     ],
     daysBack: 60,
     maxPagesPerQuery: 1,
