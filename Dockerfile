@@ -59,5 +59,8 @@ RUN npx playwright install chromium
 # Copy application code
 COPY . .
 
+# Note: For Railway deployment, set DROPBOX_TOKEN environment variable in Railway dashboard
+# The .env file will be automatically loaded by dotenv package
+
 # Run the scraper
 CMD ["node", "scraper.js"]

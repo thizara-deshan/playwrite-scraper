@@ -1,22 +1,25 @@
 const fs = require('fs');
+const path = require('path');
 const { chromium } = require('playwright');
 const cheerio = require('cheerio');
+const { Dropbox } = require('dropbox');
+require('dotenv').config();
 
 // Configuration
 const CONFIG = {
     baseUrl: 'https://www.seek.com.au',
     searchQueries: [
         'general-practitioner-jobs',
-        'dentist-jobs',
-        'podiatrist-jobs',
-        'psychologist-jobs',
-        'psychiatrist-jobs',
-        'occupational-therapist-jobs',
-        'speech-pathologist-jobs',
-        'physiotherapist-jobs'
+        // 'dentist-jobs',
+        // 'podiatrist-jobs',
+        // 'psychologist-jobs',
+        // 'psychiatrist-jobs',
+        // 'occupational-therapist-jobs',
+        // 'speech-pathologist-jobs',
+        // 'physiotherapist-jobs'
     ],
     daysBack: 60,
-    maxPagesPerQuery: 30,
+    maxPagesPerQuery: 1,
     delayBetweenPages: 4000,
     delayBetweenQueries: 6000,
     delayBetweenJobDetails: 2000,
@@ -143,6 +146,40 @@ function isWithinDaysBack(date, daysBack) {
     dateToCheck.setHours(0, 0, 0, 0);
     
     return dateToCheck >= cutoffDate && dateToCheck <= today;
+}
+
+async function uploadToDropbox(filePath, fileName) {
+    try {
+        const accessToken = process.env.DROPBOX_TOKEN;
+        
+        if (!accessToken) {
+            console.log('⚠️  DROPBOX_TOKEN not found in .env - skipping upload');
+            return false;
+        }
+        
+        const dbx = new Dropbox({ accessToken: accessToken });
+        
+        const fileContent = fs.readFileSync(filePath);
+        const dropboxPath = `/jobs/${fileName}`;
+        
+        console.log(`\n📤 Uploading to Dropbox: ${dropboxPath}`);
+        
+        const response = await dbx.filesUpload({
+            path: dropboxPath,
+            contents: fileContent,
+            mode: { '.tag': 'add' },
+            autorename: true
+        });
+        
+        console.log(`✅ File uploaded successfully to Dropbox!`);
+        console.log(`   Path: ${response.result.path_display}`);
+        console.log(`   Size: ${(response.result.size / 1024).toFixed(2)} KB`);
+        
+        return true;
+    } catch (error) {
+        console.error(`❌ Dropbox upload failed: ${error.message}`);
+        return false;
+    }
 }
 
 async function scrapeJobDetails(page, jobUrl) {
@@ -392,6 +429,9 @@ async function scrapeSeek() {
     const outputPath = `${process.cwd()}/${filename}`;
     fs.writeFileSync(outputPath, csvContent, 'utf8');
     console.log(`💾 CSV saved: ${outputPath}`);
+    
+    // Upload to Dropbox
+    await uploadToDropbox(outputPath, filename);
     
     const summary = {};
     CONFIG.searchQueries.forEach(query => {
