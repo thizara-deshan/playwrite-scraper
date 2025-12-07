@@ -9,7 +9,7 @@ require('dotenv').config();
 const CONFIG = {
     baseUrl: 'https://www.seek.com.au',
     searchQueries: [
-        'general-practitioner-jobs',
+        // 'general-practitioner-jobs',
         'dentist-jobs',
         'podiatrist-jobs',
         'psychologist-jobs',
