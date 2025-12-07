@@ -23,7 +23,8 @@ const CONFIG = {
     delayBetweenPages: 4000,
     delayBetweenQueries: 6000,
     delayBetweenJobDetails: 2000,
-    headless: false,
+    // Use headless in server environments (Railway) to avoid X server errors
+    headless: process.env.HEADLESS === 'false' ? false : true,
     timeout: 45000,
     scrapeJobDetails: true // SET TO TRUE to get full descriptions
 };
