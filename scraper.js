@@ -15,7 +15,7 @@ const CONFIG = {
         // 'psychologist-jobs',
         // 'psychiatrist-jobs',
         // 'occupational-therapist-jobs',
-        'speech-pathologist-jobs',
+        // 'speech-pathologist-jobs',
         'physiotherapist-jobs'
     ],
     daysBack: 60,
