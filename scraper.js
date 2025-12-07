@@ -14,7 +14,7 @@ const CONFIG = {
         // 'podiatrist-jobs',
         // 'psychologist-jobs',
         // 'psychiatrist-jobs',
-        'occupational-therapist-jobs',
+        // 'occupational-therapist-jobs',
         'speech-pathologist-jobs',
         'physiotherapist-jobs'
     ],
