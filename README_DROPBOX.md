@@ -9,7 +9,7 @@
 - ✅ Implemented error handling and logging
 
 ### Configuration
-- ✅ `.env` file ready with DROPBOX_TOKEN
+- ✅ `.env` file ready with DROPBOX_TOKEN now
 - ✅ `.env.example` template for reference
 - ✅ Environment variable support for Railway
 - ✅ Fallback graceful handling if token missing
